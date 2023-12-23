@@ -79,23 +79,77 @@ class flexible_expanded extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Flexible & Expanded"),
       ),
-      body: Row(
+      body: Column(
         children: [
-          Container(
-            height: 100,
-            color: Colors.red,
-            child: Text("1"),
+          Row(
+            children: [
+              Flexible(
+                fit: FlexFit.tight,
+                child: Container(
+                  height: 100,
+                  color: Colors.red,
+                  child: Text("Teks 1"),
+                )
+              ),
+              Flexible(
+                  fit: FlexFit.tight,
+                  child: Container(
+                    height: 100,
+                    color: Colors.green,
+                    child: Text("Teks 1"),
+                  )
+              ),
+              Flexible(
+                  fit: FlexFit.tight,
+                  child: Container(
+                    height: 100,
+                    color: Colors.blue,
+                    child: Text("Teks 1"),
+                  )
+              ),
+            ],
           ),
-          Container(
-            height: 100,
-            color: Colors.green,
-            child: Text("2"),
+          Row(
+            children: [
+              Container(
+                height: 100,
+                color: Colors.red,
+                child: Text("Teks 1"),
+              ),
+              Container(
+                height: 100,
+                color: Colors.green,
+                child: Text("Teks 1"),
+              ),
+              Flexible(
+                  fit: FlexFit.tight,
+                  child: Container(
+                    height: 100,
+                    color: Colors.blue,
+                    child: Text("Teks 1"),
+                  )
+              ),
+            ],
           ),
-          Container(
-            height: 100,
-            color: Colors.blue,
-            child: Text("3"),
-          )
+          Column(
+            children: [
+              Container(
+                height: 100,
+                color: Colors.red,
+                child: Text("Teks 1"),
+              ),
+              Container(
+                height: 100,
+                color: Colors.green,
+                child: Text("Teks 1"),
+              ),
+              Container(
+                height: 100,
+                color: Colors.blue,
+                child: Text("Teks 1"),
+              ),
+            ],
+          ),
         ],
       ),
     );
