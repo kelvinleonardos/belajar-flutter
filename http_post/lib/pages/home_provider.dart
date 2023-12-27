@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http_post/models/http_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeProvider extends StatelessWidget {
   const HomeProvider({super.key});
-
+  final dataprovider = Provider.of<HttpProvider>(context, listen: false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,10 +18,12 @@ class HomeProvider extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FittedBox(
-              child: Text(
-                "ID : Belum ada data",
-                style: TextStyle(fontSize: 20),
-              ),
+              child: Consumer<HttpProvider>(
+                builder: (context, value, child) => Text(
+                  value.?? "ID : Belum ada data",
+                  style: TextStyle(fontSize: 20),
+                ),,
+              )
             ),
             SizedBox(height: 20),
             FittedBox(child: Text("Name : ", style: TextStyle(fontSize: 20))),
@@ -54,7 +58,9 @@ class HomeProvider extends StatelessWidget {
             ),
             SizedBox(height: 100),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                dataprovider.connectAPI("joni", "developer");
+              },
               child: Text(
                 "POST DATA",
                 style: TextStyle(
